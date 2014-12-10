@@ -58,6 +58,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 /* checkbox checked animations */
 #checkbox.checked.box {
   border: solid 2px;
+}
+
+#checkbox.checked.box.toggled {
   -webkit-animation: box-shrink 140ms ease-out forwards;
   animation: box-shrink 140ms ease-out forwards;
 }
@@ -99,6 +102,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 #checkbox.checked.checkmark {
   border-left: none;
   border-top: none;
+}
+
+#checkbox.checked.checkmark.toggled {
   -webkit-animation: checkmark-expand 140ms ease-out forwards;
   animation: checkmark-expand 140ms ease-out forwards;
 }

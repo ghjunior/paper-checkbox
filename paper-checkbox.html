@@ -88,12 +88,21 @@ To change the checbox unchecked color:
     
     toggles: true,
 
+    toggle: function() {
+      var cl = this.$.checkbox.classList;
+      cl.add('toggled');
+      this.super();
+    },
+
     checkedChanged: function() {
       var cl = this.$.checkbox.classList;
       cl.toggle('checked', this.checked);
       cl.toggle('unchecked', !this.checked);
       cl.toggle('checkmark', !this.checked);
       cl.toggle('box', this.checked);
+      if (!cl.contains('toggled')) {
+        this.checkboxAnimationEnd();
+      }
       this.setAttribute('aria-checked', this.checked ? 'true': 'false');
       this.fire('core-change');
     },
@@ -102,6 +111,7 @@ To change the checbox unchecked color:
       var cl = this.$.checkbox.classList;
       cl.toggle('checkmark', this.checked && !cl.contains('checkmark'));
       cl.toggle('box', !this.checked && !cl.contains('box'));
+      cl.remove('toggled');
     }
 
   });
